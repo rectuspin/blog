@@ -1,10 +1,11 @@
-const express = require('express');
-const { Pool } = require('pg');
-require('dotenv').config();
+import express from 'express';
+import pg from 'pg';
+import dotenv from 'dotenv';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
+dotenv.config();
+const { Pool } = pg;
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
@@ -18,12 +19,23 @@ app.get('/', async (req, res) => {
     res.render('index.ejs',{sample_data: result.rows});
 });
 
+app.get('/items', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM blog;');
+        // res.json({ success: true, data: result.rows });
+        res.render('items.ejs',{data: result.rows});
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Error fetching data', error: error.message });
+    }
+});
+
+
 
 ////////////////////////////Database///////////////////////
 // Create a PostgreSQL connection pool
 const pool = new Pool({
-    connectionString: process.env.TRANSACTION_URL,
-    ssl: { rejectUnauthorized: false }  // Required for Supabase SSL connections
+    connectionString: process.env.TRANSACTION_DB_URL,
+    // ssl: { rejectUnauthorized: false }  // Required for Supabase SSL connections
 });
 
 // Test database connection
@@ -39,27 +51,20 @@ app.get('/test-db', async (req, res) => {
     }
 });
 
-// GET ALL RECORDS
-app.get('/items', async (req, res) => {
-    try {
-        const result = await pool.query('SELECT * FROM blog;');
-        res.json({ success: true, data: result.rows });
-    } catch (error) {
-        res.status(500).json({ success: false, message: 'Error fetching data', error: error.message });
-    }
-});
 
 // ADD A NEW RECORD
-app.post('/items', async (req, res) => {
-    const { name, description } = req.body;
+app.post('/new', async (req, res) => {
+    const { title, description } = req.body;
     try {
         const result = await pool.query(
-            'INSERT INTO blog (name, description) VALUES ($1, $2) RETURNING *;',
-            [name, description]
+            'INSERT INTO blog (title, description) VALUES ($1, $2) RETURNING *;',
+            [title, description]
         );
-        res.json({ success: true, data: result.rows[0] });
+
+        res.redirect("/?postCreated=true");
     } catch (error) {
-        res.status(500).json({ success: false, message: 'Error inserting data', error: error.message });
+        console.error('Error:', error);
+        res.redirect("/?postCreated=false"); 
     }
 });
 
@@ -68,13 +73,15 @@ app.delete('/items/:id', async (req, res) => {
     const { id } = req.params;
     try {
         await pool.query('DELETE FROM blog WHERE id = $1;', [id]);
-        res.json({ success: true, message: 'Item deleted successfully' });
+        res.json({ success: true, message: "Item deleted successfully" });
+
     } catch (error) {
         res.status(500).json({ success: false, message: 'Error deleting data', error: error.message });
+
+        console.error('Error deleting item:', error);
     }
 });
-//////////////////////////////////////////////////////////////////////////////
-
+////////////////////////////////////////////////////////////////////
 
 
 // Start the server
