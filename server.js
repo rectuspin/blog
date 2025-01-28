@@ -1,26 +1,81 @@
-
-
+const express = require('express');
+const { Pool } = require('pg');
 require('dotenv').config();
 
-const express = require('express');
-const cors = require('cors');
-const { createClient } = require('@supabase/supabase-js');
-
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
-// Supabase Setup
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
 
-app.use(cors()); // Allow all origins (change later for security)
+app.set('view engine', 'ejs');
+app.set('views', './views');
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("frontend"));
 
-// Route to get projects from Supabase
-app.get('/projects', async (req, res) => {
-    const { data, error } = await supabase.from('projects').select('*');
-    if (error) return res.status(500).json({ error: error.message });
-    res.json(data);
+app.get('/', async (req, res) => {
+    const result = await pool.query('SELECT * FROM blog LIMIT 1');
+    res.render('index.ejs',{sample_data: result.rows});
 });
 
-// Start server
+
+////////////////////////////Database///////////////////////
+// Create a PostgreSQL connection pool
+const pool = new Pool({
+    connectionString: process.env.TRANSACTION_URL,
+    ssl: { rejectUnauthorized: false }  // Required for Supabase SSL connections
+});
+
+// Test database connection
+app.get('/test-db', async (req, res) => {
+    try {
+        const client = await pool.connect();
+        const result = await client.query('SELECT * FROM blog LIMIT 1;'); // Fetch one row
+        client.release(); // Release the connection back to the pool
+
+        res.json({ success: true, message: 'Connected to database!', sample_data: result.rows });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Database connection failed', error: error.message });
+    }
+});
+
+// GET ALL RECORDS
+app.get('/items', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM blog;');
+        res.json({ success: true, data: result.rows });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Error fetching data', error: error.message });
+    }
+});
+
+// ADD A NEW RECORD
+app.post('/items', async (req, res) => {
+    const { name, description } = req.body;
+    try {
+        const result = await pool.query(
+            'INSERT INTO blog (name, description) VALUES ($1, $2) RETURNING *;',
+            [name, description]
+        );
+        res.json({ success: true, data: result.rows[0] });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Error inserting data', error: error.message });
+    }
+});
+
+// DELETE A RECORD
+app.delete('/items/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        await pool.query('DELETE FROM blog WHERE id = $1;', [id]);
+        res.json({ success: true, message: 'Item deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Error deleting data', error: error.message });
+    }
+});
+//////////////////////////////////////////////////////////////////////////////
+
+
+
+// Start the server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
