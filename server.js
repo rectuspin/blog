@@ -60,10 +60,11 @@ app.post('/new', async (req, res) => {
             'INSERT INTO blog (title, description) VALUES ($1, $2) RETURNING *;',
             [title, description]
         );
-
+        res.json({ success: true, message: "Item created successfully" });
         res.redirect("/?postCreated=true");
     } catch (error) {
         console.error('Error:', error);
+        res.status(500).json({ success: false, message: 'Error creating data', error: error.message });
         res.redirect("/?postCreated=false"); 
     }
 });

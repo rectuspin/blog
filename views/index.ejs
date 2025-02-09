@@ -1,19 +1,702 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index Page</title>
-    <%- include('header') %>
-</head>
-<body>
+<%- include('partials/header') %>
+
+
+    <!-- Main content -->
+    <main id="main" class="site-main">
+
+        <!-- Hello section -->
+		<section class="site-section section-hello" id="intro">
+			<div class="container">
+				<h2>Christopher Suk-hwan Yu</h2>
+				<p class="section-subtitle"><span>Welcome</span></p>
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="main-service text-right">
+							<div class="rectangle">
+								<i class="fa fa-file-code-o" aria-hidden="true"></i>
+							</div><!-- /.rectangle -->
+							<h3>Tech-Savvy</h3>
+							<p>Proficient in programming, systems administration, cloud, and DevOps</p>
+						</div><!-- /.main-service -->
+                        <div class="main-service text-right">
+                            <div class="rectangle">
+                                <i class="fa fa-comments" aria-hidden="true"></i>
+                            </div>
+                            <h3>Communication</h3>
+                            <p>Have experience as a project manager, liaising weekly with 50+ counterparts from both global and local teams, and overseeing the onboarding of 1,000+ employees.</p>
+                        </div><!-- /.main-service -->
+					</div>
+					<div class="col-sm-4">
+						<div class="big-rectangle">
+							<!-- <img src="assets/img/developer-icon.png" alt=""> -->
+                            <i class="fa fa-cog" aria-hidden="true"></i>
+						</div><!-- /.big-rectangle -->
+					</div>
+					<div class="col-sm-4">
+                        <div class="main-service text-left">
+                            <div class="rectangle">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                            </div>
+                            <h3>Commitment</h3>
+                            <p>My key strengths include a strong commitment to taking responsibility for achieving objectives and a dedication to continuous self-learning.</p>
+                        </div><!-- /.main-service -->
+						<div class="main-service text-left">
+							<div class="rectangle">
+								<i class="fa fa-fire" aria-hidden="true"></i>
+							</div><!-- /.rectangle -->
+							<h3>Resilience</h3>
+							<p></p>
+						</div><!-- /.main-service -->
+					</div>
+				</div>
+			</div>
+		</section><!-- /.section-hello -->
+        <!-- End Hello section -->
+
+        <!-- Intro section 2 -->
+		<section class="section-background section-intro background-overlay text-center">
+			<div class="container">
+				<p>Dual citizen of <span>the United States</span> and <span>Republic of Korea</span></p>
+			</div>
+		</section><!-- /.section-intro -->
+        <!-- End Intro section 2 -->
+
+        <!-- About section -->
+        <section class="site-section section-about text-center" id="about">
+            <div class="container">
+                <h2>ABOUT CHRISTOPHER</h2>
+                <!-- <p class="section-subtitle"><span></span></p> -->
+                <div class="row">
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="feature-about">
+                            <div class="medium-rectangle rectangle">
+                                <i class="fa fa-laptop" aria-hidden="true"></i>
+                            </div><!-- /.rectangle -->
+                            <h3>SYSTEMS Administration</h3>
+                            <p></p>
+                        </div><!-- /.feature-about -->
+                    </div>                    
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="feature-about">
+                            <div class="medium-rectangle rectangle">
+                                <i class="fa fa-code" aria-hidden="true"></i>
+                            </div><!-- /.rectangle -->
+                            <h3>Programming</h3>
+                            <p></p>
+                        </div><!-- /.feature-about -->
+                    </div>                    
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="feature-about">
+                            <div class="medium-rectangle rectangle">
+                                <i class="fa fa-cogs" aria-hidden="true"></i>
+                            </div><!-- /.rectangle -->
+                            <h3>DEVOPS</h3>
+                            <p></p>
+                        </div><!-- /.feature-about -->
+                    </div>                    
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="feature-about">
+                            <div class="medium-rectangle rectangle">
+                                <i class="fa fa-list" aria-hidden="true"></i>
+                            </div><!-- /.rectangle -->
+                            <h3>PROJECT MANAGEMENT</h3>
+                            <p></p>
+                        </div><!-- /.feature-about -->
+                    </div>
+                </div>
+            </div>
+        </section><!-- /.section-about -->
+        <!-- End About section -->
+
+        <!-- Skills section -->
+        <section class="site-section section-skills">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2>Certifications</h2>
+                        <div class="certification-about text-left">
+                            <div class="medium-rectangle rectangle">
+                                <img src="assets/img/cka.png" class="img-responsive" alt="">
+                            </div><!-- /.rectangle -->
+                            <h3>Certified Kubernetes Administrator (CKA)</h3>
+                        </div>
+                        <div class="certification-about text-left">
+                            <div class="medium-rectangle rectangle">
+                                <img src="assets/img/aws-saa.png" class="img-responsive" alt="">
+                            </div><!-- /.rectangle -->
+                            <h3>AWS Certified Solutions Architect – Associate</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <h2>SKILLS</h2>
+                        <div class="progress-group">
+                            <p>Systems Administration</p>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" data-transitiongoal="100">
+                                </div>
+                            </div><!-- /.progress -->
+                        </div><!-- /.progress-group -->
+
+                        <div class="progress-group">
+                            <p>DEVOPS</p>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" data-transitiongoal="90">
+                                </div>
+                            </div><!-- /.progress -->
+                        </div><!-- /.progress-group -->
+
+                        <div class="progress-group">
+                            <p>Backend Development</p>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" data-transitiongoal="85">
+                                </div>
+                            </div><!-- /.progress -->
+                        </div><!-- /.progress-group -->
+
+                        <div class="progress-group">
+                            <p>Server security</p>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" data-transitiongoal="80">
+                                </div>
+                            </div><!-- /.progress -->
+                        </div><!-- /.progress-group -->
+                    </div>
+                </div>
+            </div>
+        </section><!-- /.section-skills -->
+        <!-- End Skills section -->
+
+        <!-- Expertise section -->
+        <section class="site-section section-services" id="expertise">
+            <div class="container-fluid">
+                <h2>Skills & Expertise</h2>
+                <!-- <p class="section-subtitle"><span></span></p> -->
+            </div>
+
+            <div class="container">
+
+                <div class="carousel slide" id="services-carousel">
+
+                    <div class="item-controls text-center">
+                        <a href="#services-carousel" class="left btn carousel-control" data-slide="prev"><i class="fa fa-angle-left" aria-hidden="true"></i>
+                        </a>
+                        <a href="#services-carousel" class="right btn carousel-control" data-slide="next"><i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </a>
+                    </div><!-- /.item-controls -->
+
+                    <div class="carousel-indicators nav-tabs text-center">
+                        <a data-target="#services-carousel" href="#" data-slide-to="0" class="active">
+                            <div class="col-xs-4 col-sm-fifth">
+                                <div class="service">
+                                    <div class="rectangle">
+                                        <i class="fa fa-laptop" aria-hidden="true"></i>
+                                    </div>
+                                    <p class="hidden-xs">Systems Administration</p>
+                                </div>
+                            </div>
+                        </a><!-- /.item -->
+                        <a data-target="#services-carousel" href="#" data-slide-to="1">
+                            <div class="col-xs-4 col-sm-fifth">
+                                <div class="service">
+                                    <div class="rectangle">
+                                        <i class="fa fa-code" aria-hidden="true"></i>
+                                    </div>
+                                    <p class="hidden-xs">Programming</p>
+                                </div>
+                            </div>
+                        </a><!-- /.item -->
+                        <a data-target="#services-carousel" href="#" data-slide-to="2">
+                            <div class="col-xs-4 col-sm-fifth">
+                                <div class="service">
+                                    <div class="rectangle">
+                                        <i class="fa fa-cogs" aria-hidden="true"></i>
+                                    </div>
+                                    <p class="hidden-xs">DevOps</p>
+                                </div>
+                            </div>
+                        </a><!-- /.item -->
+                        <a data-target="#services-carousel" href="#" data-slide-to="3">
+                            <div class="col-xs-4 col-sm-fifth">
+                                <div class="service">
+                                    <div class="rectangle">
+                                        <i class="fa fa-list" aria-hidden="true"></i>
+                                    </div>
+                                    <p class="hidden-xs">Project Management</p>
+                                </div>
+                            </div>
+                        </a><!-- /.item -->
+                        <a data-target="#services-carousel" href="#" data-slide-to="4">
+                            <div class="col-xs-4 col-sm-fifth">
+                                <div class="service">
+                                    <div class="rectangle">
+                                        <i class="fa fa-info" aria-hidden="true"></i>
+                                    </div>
+                                    <p class="hidden-xs">Miscellaneous</p>
+                                </div>
+                            </div>
+                        </a><!-- /.item -->
+                    </div><!-- /.carousel-indicators -->
+                        
+                           
+                    <div class="carousel-inner">
+                        <!-- Item 1 -->   
+                        <div id="item1" class="item tab-pane active">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="service-info">
+                                        <h3 class="service-title">Systems Administration</h3>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <img src="" class="img-responsive" alt="">
+                                </div>
+                            </div>
+                        </div><!-- /.item -->
+                        <!-- Item 2 -->   
+                        <div id="item2" class="item tab-pane">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="service-info">
+                                        <h3 class="service-title">Programming</h3>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <img src="" class="img-responsive" alt="">
+                                </div>
+                            </div>
+                        </div><!-- /.item -->
+                        <!-- Item 3 -->   
+                        <div id="item3" class="item tab-pane">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="service-info">
+                                        <h3 class="service-title">DevOps</h3>
+                                        <p></p>                                     
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <img src="" class="img-responsive" alt="">
+                                </div>
+                            </div>
+                        </div><!-- /.item -->
+                        <!-- Item 4 -->   
+                        <div id="item4" class="item tab-pane">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="service-info">
+                                        <h3 class="service-title">Project Management</h3>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <img src="" class="img-responsive" alt="">
+                                </div>
+                            </div>
+                        </div><!-- /.item -->
+                        <!-- Item 5 -->   
+                        <div id="item5" class="item tab-pane">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="service-info">
+                                        <h3 class="service-title">Miscellaneous</h3>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <img src="" class="img-responsive" alt="">
+                                </div>
+                            </div>
+                        </div><!-- /.item -->
+                    </div><!-- /.carousel-inner -->
+                </div><!-- /.carousel -->
+            </div>
+        </section><!-- /.section-services -->
+        <!-- End Services section -->
+
+        <!-- Portfolio/Works section --> 
+        <section class="site-section section-works" id="stack">
+            <div class="container">
+                <h2>Built With</h2>
+                <p class="section-subtitle"><span>Technologies That Make This Website Work</span></p>
+
+                <div class="portfolio">
+                    <ul class="portfolio-sorting list-inline">
+                        <li><a href="#" class="active" data-group="all">all</a></li>
+                        <li><a href="#" class="" data-group="hosting">Hosting Platforms</a></li>
+                        <li><a href="#" class="" data-group="frontend">Frontend</a></li>
+                        <li><a href="#" class="" data-group="backend">Backend</a></li>
+                    </ul><!-- /.portfolio-sorting  -->
+                    
+                    <div id="grid">                        
+                        <!-- Portfolio item --> 
+                        <div class="col-md-3 col-sm-4 col-xs-6" data-groups='["hosting"]'>
+                            <div class="portfolio-item">
+                                <div class="portfolio-item-thumb">
+                                    <!-- <img src="" alt="" class="img-res"> -->
+                                </div><!-- /.portfolio-item-thumb  -->
+                                <div class="portfolio-info">
+                                    <h3></h3>
+                                </div><!-- /.portfolio-info  -->
+                            </div>
+                        </div><!-- /.col-md-3  -->
+
+                    </div><!-- /#grid -->
+                </div>
+            </div>
+        </section><!-- /.section-works -->
+        <!-- End Works section --> 
+
+        <!-- Me section --> 
+        <section class="section-background section-me background-overlay text-center">
+            <div class="container page-scroll">
+                <h2>Are You Impressed By My Work?</h2>
+                <a href="#contact" class="btn">GET IN TOUCH</a>
+            </div>
+        </section><!-- /.section-me -->
+        <!-- End Me section --> 
+
+        <!-- History section --> 
+        <section class="section-history" id="history">
+            <div class="container">          
+                <div class="text-center section-diff-title">     
+                    <h2>My Journey</h2>
+                    <p>Education and Work Experience</p>
+                </div> 
+                <!-- Timeline --> 
+                <ul class="timeline">
+                    <!-- Timeline badge --> 
+                    <li class="timeline-start">
+                        <div class="rectangle"><span>2013</span></div>
+                    </li><!-- /.timeline-start -->
+
+                    <!-- Timeline job & description  --> 
+                    <li>
+                        <div class="rectangle timeline-rectangle"></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <div class="timeline-date">
+                                    <p>MAR</p>
+                                </div><!-- /.timeline-date -->
+                                <div class="timeline-position">
+                                    <p>Sogang University</p>
+                                </div><!-- /.timeline-position -->
+                            </div><!-- /.timeline-heading -->
+                            <div class="timeline-body">
+                                <div class="timeline-body-thumb">
+                                    <img src="assets/img/Sogang.png" class="img-res" alt="">
+                                </div><!-- /.timeline-body-thumb -->
+                                <p class="translucent">Seoul, Republic of Korea</p>
+                                <p>Started bachelor's degree program</p><br>
+                            </div><!-- /.timeline-body -->
+                        </div><!-- /.timeline-panel -->
+                    </li>
+
+                    <!-- Timeline badge --> 
+                    <li class="timeline-start">
+                        <div class="rectangle"><span>2014</span></div>
+                    </li><!-- /.timeline-start -->
+
+                    <!-- Timeline job & description, inverted  --> 
+                    <li class="timeline-inverted">
+                        <div class="rectangle timeline-rectangle"></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                               <div class="timeline-position">
+                                    <p>NATIONAL SERVICE</p>
+                                </div><!-- /.timeline-position -->
+                                <div class="timeline-date">
+                                    <p>AUG</p>
+                                </div><!-- /.timeline-date -->
+                            </div><!-- /.timeline-heading -->
+                            <div class="timeline-body">
+                                <div class="timeline-body-thumb">
+                                    <img src="assets/img/mma.jpg" class="img-res" alt="">
+                                </div><!-- /.timeline-body-thumb -->
+                                <p class="translucent">Seoul, Republic of Korea</p>
+                                <p>2 years of mandatory national service, as required by the Republic of Korea (Aug,2014-Aug,2016)</p><br>
+                                <p>Received the Exemplary Award from the mayor of Seoul</p>
+                            </div><!-- /.timeline-body -->
+                        </div><!-- /.timeline-panel -->
+                    </li><!-- /.timeline-inverted -->
+                    
+                    <!-- Timeline badge --> 
+                    <li class="timeline-start">
+                        <div class="rectangle"><span>2019</span></div>
+                    </li><!-- /.timeline-start --> 
+
+
+                    <!-- Timeline job & description  --> 
+                    <li>
+                        <div class="rectangle timeline-rectangle"></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <div class="timeline-date">
+                                    <p>Aug</p>
+                                </div><!-- /.timeline-date -->
+                                <div class="timeline-position">
+                                    <p>Nanyang Technological University</p>
+                                </div><!-- /.timeline-position -->
+                            </div><!-- /.timeline-heading -->
+                            <div class="timeline-body">
+                                <div class="timeline-body-thumb">
+                                    <img src="assets/img/NTU_1.png" class="img-res" alt="">
+                                </div><!-- /.timeline-body-thumb -->
+                                <p class="translucent">Singapore, Singapore</p>
+                                <p>One-semester exchange program (Aug,2019-Dec,2019)</p>
+                            </div><!-- /.timeline-body -->
+                        </div><!-- /.timeline-panel -->
+                    </li>
+
+                    <!-- Timeline badge --> 
+                    <li class="timeline-start">
+                        <div class="rectangle"><span>2021</span></div>
+                    </li><!-- /.timeline-start -->
+
+                    <!-- Timeline job & description, inverted  --> 
+                    <li class="timeline-inverted">
+                        <div class="rectangle timeline-rectangle"></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                               <div class="timeline-position">
+                                    <p>Sogang University</p>
+                                </div><!-- /.timeline-position -->
+                                <div class="timeline-date">
+                                    <p>FEB</p>
+                                </div><!-- /.timeline-date -->
+                            </div><!-- /.timeline-heading -->
+                            <div class="timeline-body">
+                                <div class="timeline-body-thumb">
+                                    <img src="assets/img/Sogang.png" class="img-res" alt="">
+                                </div><!-- /.timeline-body-thumb -->
+                                <p class="translucent">Seoul, Republic of Korea</p>
+                                <p>Graduated from Sogang University (Double major)</p><br>
+                                <p>Bachelor of Business Administration - Business Administration<br>Bachelor of Science in Engineering - Computer Science and Engineering</p>
+                            </div><!-- /.timeline-body -->
+                        </div><!-- /.timeline-panel -->
+                    </li><!-- /.timeline-inverted -->
+                    <!-- Timeline job & description  --> 
+                    <li>
+                        <div class="rectangle timeline-rectangle"></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <div class="timeline-date">
+                                    <p>MAR</p>
+                                </div><!-- /.timeline-date -->
+                                <div class="timeline-position">
+                                    <p>AXA General Insurance Co. Ltd.</p>
+                                </div><!-- /.timeline-position -->
+                            </div><!-- /.timeline-heading -->
+                            <div class="timeline-body">
+                                <div class="timeline-body-thumb">
+                                    <img src="assets/img/AXA.png" class="img-res" alt="">
+                                </div><!-- /.timeline-body-thumb -->
+                                <p class="translucent">Seoul, Republic of Korea</p>
+                                <p>Started working as System Administrator</p>
+                            </div><!-- /.timeline-body -->
+                        </div><!-- /.timeline-panel -->
+                    </li>                    
+                    <!-- Timeline badge --> 
+                    <li class="timeline-start">
+                        <div class="rectangle"><span>2023</span></div>
+                    </li><!-- /.timeline-start -->
+                    <!-- Timeline job & description, inverted  --> 
+                    <li class="timeline-inverted">
+                        <div class="rectangle timeline-rectangle"></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                               <div class="timeline-position">
+                                    <p>AXA General Insurance Co. Ltd.</p>
+                                </div><!-- /.timeline-position -->
+                                <div class="timeline-date">
+                                    <p>FEB</p>
+                                </div><!-- /.timeline-date -->
+                            </div><!-- /.timeline-heading -->
+                            <div class="timeline-body">
+                                <div class="timeline-body-thumb">
+                                    <img src="assets/img/AXA.png" class="img-res" alt="">
+                                </div><!-- /.timeline-body-thumb -->
+                                <p class="translucent">Seoul, Republic of Korea</p>
+                                <p>Started an additional role as Project Manager</p><br>
+                            </div><!-- /.timeline-body -->
+                        </div><!-- /.timeline-panel -->
+                    </li><!-- /.timeline-inverted -->
+
+
+                    <!-- Timeline Badge  --> 
+                    <li class="timeline-end">
+                        <div class="rectangle"><span>More</span></div>
+                    </li><!-- /.timeline-end -->
+                </ul><!-- /.timeline -->
+            </div>
+        </section><!-- /.section-history -->
+        <!-- End History section --> 
+
+        <!-- Resume section --> 
+        <section class="section-background section-resume background-overlay text-center" id="resume">
+            <div class="container">
+                <div class="rectangle">
+                    <i class="fa fa-info"></i>
+                </div>
+                <p>Do you want to know more about me?</p>
+                <p>Here is my resume!</p>
+                <a href="https://drive.google.com/file/d/1MhgsN8GKYFxUnn2Ak_xUnvyk_9vUpLlF/view" target="_blank" class="btn btn-inverted">Go</a>
+            </div>
+        </section><!-- /.section-resume-->
+        <!-- End Resume section --> 
+         
+        <!-- Activities section -->
+        <section class="site-section section-activities" id="activity">
+            <div class="container">
+                <h2>Activities</h2>
+                <p class="section-subtitle"><span>Highlighted Activities I've Been Involved In</span></p>               
+                <div class="team">
+                    <div class="row">   
+                        <!-- Activities --> 
+                        <div class="col-md-3 col-xs-6">
+                            <div class="activities">
+                                <div class="flipper">
+                                    <div class="activities-front">
+                                        <div class="activities-thumb">
+                                            <img src="" class="img-res" alt="">
+                                        </div>  <!-- /.activities-thumb -->
+                                        <p class="activities-front-name">Android Programming</p>
+                                    </div><!-- /.activities-front -->
+                                    <div class="activities-back">
+                                        <div class="activities-info">
+                                            <h3 class="activities-back-name">Android Programming</h3>
+                                            <p class="activities-back-position"></p>
+                                            <p class="activities-back-info"></p>
+                                            <div class="social-icons small">
+                                                <a href="#" class="rectangle"><i class="fa fa-github"></i></a>
+                                            </div>
+                                        </div><!-- /.activities-back-info -->
+                                    </div><!-- /.activities-back -->  
+                                </div>         
+                            </div><!-- /.activities -->       
+                        </div>
+                        <!-- Activities --> 
+                        <div class="col-md-3 col-xs-6">
+                            <div class="activities">
+                                <div class="flipper">
+                                    <div class="activities-front">
+                                        <div class="activities-thumb">
+                                            <img src="" class="img-res" alt="">
+                                        </div>  <!-- /.activities-thumb -->
+                                        <p class="activities-front-name"></p>
+                                    </div><!-- /.activities-front -->
+                                    <div class="activities-back">
+                                        <div class="activities-info">
+                                            <h3 class="activities-back-name"></h3>
+                                            <p class="activities-back-position"></p>
+                                            <p class="activities-back-info"></p>
+                                            <div class="social-icons small">
+
+                                            </div>
+                                        </div><!-- /.activities-back-info -->
+                                    </div><!-- /.activities-back -->  
+                                </div>         
+                            </div><!-- /.activities -->       
+                        </div>
+                        <!-- Activities --> 
+                        <div class="col-md-3 col-xs-6">
+                            <div class="activities">
+                                <div class="flipper">
+                                    <div class="activities-front">
+                                        <div class="activities-thumb">
+                                            <img src="" class="img-res" alt="">
+                                        </div>  <!-- /.activities-thumb -->
+                                        <p class="activities-front-name"></p>
+                                    </div><!-- /.`-front -->
+                                    <div class="activities-back">
+                                        <div class="activities-info">
+                                            <h3 class="activities-back-name"></h3>
+                                            <p class="activities-back-position"></p>
+                                            <p class="activities-back-info"></p>
+                                            <div class="social-icons small">
+
+                                            </div>
+                                        </div><!-- /.activities-back-info -->
+                                    </div><!-- /.activities-back -->  
+                                </div>         
+                            </div><!-- /.activities -->       
+                        </div>
+                        <!-- Activities --> 
+                        <div class="col-md-3 col-xs-6">
+                            <div class="activities">
+                                <div class="flipper">
+                                    <div class="activities-front">
+                                        <div class="activities-thumb">
+                                            <img src="" class="img-res" alt="">
+                                        </div>  <!-- /.activities-thumb -->
+                                        <p class="activities-front-name"></p>
+                                    </div><!-- /.activities-front -->
+                                    <div class="activities-back">
+                                        <div class="activities-info">
+                                            <h3 class="activities-back-name"></h3>
+                                            <p class="activities-back-position"></p>
+                                            <p class="activities-back-info"></p>
+                                            <div class="social-icons small">
+
+                                            </div>
+                                        </div><!-- /.activities-back-info -->
+                                    </div><!-- /.activities-back -->  
+                                </div>         
+                            </div><!-- /.activities -->       
+                        </div>
+                    </div>
+                </div><!-- /.team -->   
+            </div>
+        </section><!-- /.section-activities -->
+        <!-- End Activities section -->
+
+
+        <!-- Contacts section --> 
+        <section class="site-section section-contact text-center" id="contact">
+            <div class="container">
+                <h2>CONTACT</h2>
+                <!-- <p class="section-subtitle"><span>Here</span></p> -->
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12">
+                        <div class="feature-about">
+                            <div class="medium-rectangle rectangle">
+                                <a href="mailto:your-email@example.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                            </div><!-- /.rectangle -->
+                            <h3>Email</h3>
+                            <p></p>
+                        </div><!-- /.feature-about -->
+                    </div>                    
+                    <div class="col-sm-6 col-xs-12">
+                        <div class="feature-about">
+                            <div class="medium-rectangle rectangle">
+                                <a href="https://www.linkedin.com/in/christopher-suk-hwan-yu" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                            </div><!-- /.rectangle -->
+                            <h3>LinkedIn</h3>
+                            <p></p>
+                        </div><!-- /.feature-about -->
+                    </div>                    
+            </div>
+        </section><!-- /.section-contact-->
+        <!-- End Contacts section --> 
+    
+        <!-- Social Networks section --> 
+        <section class="section-networks blue-bg">
+
+        </section><!-- /.section-networks-->
+        <!-- End Social Networks section --> 
+
+    </main><!-- /#main -->
+    <!-- End Main content -->
+
+
+
+
+</body>
+<!-- 
+
     <h1>Index</h1>
     <a href="/items">ITEMS</a>
-    <ul>
-        <% sample_data.forEach(item => { %>
-            <li><%= item.title %> - <%= item.description %></li>
-        <% }) %>
-    </ul>
 
     <form action="/new" method="post">
         <p>Write a post</p>
@@ -23,8 +706,5 @@
         <input type="text" name="description">
         <button type="submit">Add</button>
     </form>
-
-
-    <%- include('footer') %>
-</body>
-</html>
+     -->
+<%- include('partials/footer') %>
