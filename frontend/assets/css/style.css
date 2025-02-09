@@ -321,6 +321,7 @@ html, body {
   line-height: 26px;
   color: #ffffff;
   text-transform: uppercase;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Navigation */
@@ -478,6 +479,7 @@ html, body {
   text-align: center;
   margin: 0 auto;
   text-transform: uppercase;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .hero-content p {
@@ -638,7 +640,7 @@ html, body {
   color: #666;
   letter-spacing: 2px;
   text-align: center;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .section-subtitle span {
@@ -1554,6 +1556,12 @@ html, body {
 
 .section-history .section-diff-title h2 {
   color: #196fc2;
+  font-family: "Varela", sans-serif;
+  margin: 0;
+  font-size: 32px;
+  color: #196fc2;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .section-history .section-diff-title p {
@@ -2445,4 +2453,12 @@ textarea.form-control {
 
 .section-activities{
   background-color: #f6f6f6;
+}
+
+h2{
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);  /* Title shadow to make it more visible */
+}
+
+a.clickable-icon i{
+  font-size:32px;
 }
