@@ -44,7 +44,7 @@ const pool = new Pool({
 });
 
 // Test database connection
-app.get('/test-db', async (req, res) => {
+app.get('/test-db1', async (req, res) => {
     try {
         const client = await pool.connect();
         const result = await client.query('SELECT * FROM blog LIMIT 1;'); // Fetch one row
@@ -57,7 +57,7 @@ app.get('/test-db', async (req, res) => {
 });
 
 
-// ADD A NEW RECORD
+// Add a new record
 app.post('/new', async (req, res) => {
     const { title, description } = req.body;
     try {
@@ -74,7 +74,7 @@ app.post('/new', async (req, res) => {
     }
 });
 
-// DELETE A RECORD
+// Delete a record
 app.delete('/items/:id', async (req, res) => {
     const { id } = req.params;
     try {

@@ -199,3 +199,18 @@ $(function () {
       shuffleme.init(); //filter portfolio
     };
 }());
+
+
+////////////////////Additional//////////////////////////
+$(document).ready(function() {
+    $('.highlight').on('click', function() {
+        var target = $(this).data("target");
+        $('html, body').animate({
+            scrollTop: $(target).offset().top -120
+        }, 1000);  
+        $(target).addClass('blink');
+        setTimeout(function() {
+            $(target).removeClass('blink');
+        }, 4000); 
+    });
+});

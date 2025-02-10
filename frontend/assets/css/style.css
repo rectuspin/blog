@@ -445,7 +445,7 @@ html, body {
 /* HERO
 ================================================== */
 .hero {
-  background: url(../img/hero.jpg) center no-repeat;
+  background: url(../img/hero.png) center no-repeat;
   height: 100%;
   width: 100%;
   display: table;
@@ -1146,7 +1146,7 @@ html, body {
 
 .service-info h3 {
   font-size: 28px;
-  margin: 20px 0 0;
+  margin: 0 0 0;
 }
 
 .service-info p {
@@ -2063,7 +2063,7 @@ html, body {
 
 /* Sections background: intro */
 .section-intro {
-  background: url(../img/intro.jpg) center no-repeat fixed;
+  background: url(../img/intro.png) center no-repeat fixed;
 }
 
 .section-intro p {
@@ -2078,7 +2078,7 @@ html, body {
 
 /* Sections background: Me */
 .section-me {
-  background: url(../img/contact_me.jpg) center no-repeat fixed;
+  background: url(../img/contact_me.png) center no-repeat fixed;
 }
 
 .section-me h2 {
@@ -2089,7 +2089,7 @@ html, body {
 
 /* Sections background: Twitter */
 .section-resume {
-  background: url(../img/resume.jpg) center no-repeat fixed;
+  background: url(../img/resume.png) center no-repeat fixed;
 }
 
 .section-resume .container {
@@ -2476,3 +2476,18 @@ a.clickable-icon i{
   font-size: 16px;
 }
 
+@keyframes blink {
+  0% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+.blink {
+  animation: blink 1s ease-in-out 0s infinite;
+}
