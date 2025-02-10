@@ -14,9 +14,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("frontend"));
 
+app.use((req, res, next) => {
+    res.locals.pageName = '';
+    next();
+});
+
 app.get('/', async (req, res) => {
     const result = await pool.query('SELECT * FROM blog LIMIT 1');
-    res.render('index.ejs',{sample_data: result.rows});
+    res.render('index.ejs',{sample_data: result.rows, pageName:'home'});
 });
 
 app.get('/items', async (req, res) => {

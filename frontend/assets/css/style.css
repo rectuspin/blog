@@ -1960,7 +1960,7 @@ html, body {
   margin: 10px 0 0;
   font-size: 12px;
   font-weight: 300;
-  color: #bbbbbb;
+  color: #666666;
 }
 
 .portfolio-item:hover .portfolio-item-thumb {
@@ -2462,3 +2462,17 @@ h2{
 a.clickable-icon i{
   font-size:32px;
 }
+
+.portfolio-item-thumb{
+  display: flex;
+  align-items: center;
+}
+.portfolio-item-thumb .img-res{
+  width:100%;
+  height: auto;
+}
+
+.section-resume .container p {
+  font-size: 16px;
+}
+
