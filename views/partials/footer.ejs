@@ -7,14 +7,17 @@
         <div class="container-fluid">
 
             <ul class="list-unstyled list-inline">
-                <li class="page-scroll"><a href="#top">Home</a></li>
-                <li class="page-scroll"><a href="#intro">Intro</a></li>
-                <li class="page-scroll"><a href="#about">About</a></li>
-                <li class="page-scroll"><a href="#services">Services</a></li>
-                <li class="page-scroll"><a href="#team">Team</a></li>
-                <li class="page-scroll"><a href="#history">My Journey</a></li>
-                <li class="page-scroll"><a href="#works">Works</a></li>
-                <li class="page-scroll"><a href="#contact">Contact</a></li>
+                <li class="page-scroll"><a href="/">Home</a></li>
+                <% if (pageName === 'home') { %>
+                    <li class="page-scroll"><a href="#intro">Intro</a></li>
+                    <li class="page-scroll"><a href="#about">About</a></li>
+                    <li class="page-scroll"><a href="#expertise">Expertise</a></li>
+                    <li class="page-scroll"><a href="#stack">Built With</a></li>
+                    <li class="page-scroll"><a href="#history">My Journey</a></li>
+                    <li class="page-scroll"><a href="#resume">Resume</a></li>
+                    <li class="page-scroll"><a href="#activity">Activities</a></li>
+                    <li class="page-scroll"><a href="#contact">Contact</a></li>
+                <% } %>
             </ul>
 
             <div class="page-scroll">
