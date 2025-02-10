@@ -1797,7 +1797,7 @@ html, body {
     content: none;
   }
   .timeline > li .timeline-rectangle {
-    disply: none;
+    display: none;
   }
 }
 
@@ -2202,6 +2202,7 @@ html, body {
   box-shadow: none;
   border-radius: 0;
   -webkit-appearance: none;
+  appearance: none;
 }
 
 .form-control:focus {
