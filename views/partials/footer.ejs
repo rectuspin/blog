@@ -34,9 +34,7 @@
 
     </footer><!-- /#footer -->
     <!-- End Footer --> 
- 
-    <!-- jQuery core js -->
-    <script src="assets/js/jquery.min.js"></script>
+
 
     <!-- Bootstrap core js -->
     <script src="assets/js/bootstrap.min.js"></script>
@@ -61,6 +59,11 @@
 
     <!-- Custom JS -->
     <script src="assets/js/script.js"></script>
-  
+    
+    <!-- Custom JS - home -->
+    <% if (pageName === 'home') { %>
+        <script src="assets/js/home.js"></script>
+    <% } %>
+
 </body>
 </html>

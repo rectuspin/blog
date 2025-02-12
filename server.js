@@ -6,6 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 dotenv.config();
 const { Pool } = pg;
+// const db = await pool.connect();
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
@@ -14,29 +15,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("frontend"));
 
-app.use((req, res, next) => {
-    res.locals.pageName = '';
-    next();
-});
-
-app.get('/', async (req, res) => {
-    const result = await pool.query('SELECT * FROM blog LIMIT 1');
-    res.render('index.ejs',{sample_data: result.rows, pageName:'home'});
-});
-
-app.get('/items', async (req, res) => {
-    try {
-        const result = await pool.query('SELECT * FROM blog;');
-        // res.json({ success: true, data: result.rows });
-        res.render('items.ejs',{data: result.rows});
-    } catch (error) {
-        res.status(500).json({ success: false, message: 'Error fetching data', error: error.message });
-    }
-});
-
-
-
-////////////////////////////Database///////////////////////
 // Create a PostgreSQL connection pool
 const pool = new Pool({
     connectionString: process.env.TRANSACTION_DB_URL,
@@ -46,9 +24,8 @@ const pool = new Pool({
 // Test database connection
 app.get('/test-db1', async (req, res) => {
     try {
-        const client = await pool.connect();
-        const result = await client.query('SELECT * FROM blog LIMIT 1;'); // Fetch one row
-        client.release(); // Release the connection back to the pool
+        const result = await pool.query('SELECT * FROM blog LIMIT 1;'); // Fetch one row
+        pool.release(); // Release the connection back to the pool
 
         res.json({ success: true, message: 'Connected to database!', sample_data: result.rows });
     } catch (error) {
@@ -87,7 +64,74 @@ app.delete('/items/:id', async (req, res) => {
         console.error('Error deleting item:', error);
     }
 });
-////////////////////////////////////////////////////////////////////
+
+////////////////////////////Worldmap Start/////////////////////
+let currentUserId = 1;
+
+let users = [
+    { id: 1, name: "Angela", color: "blue" },
+  ];
+
+
+  async function checkVisisted() {
+   
+    const result = await pool.query(
+      "SELECT country_code FROM visited_countries JOIN users ON users.id = user_id WHERE user_id = $1; ",
+      [currentUserId]
+    );
+    let countries = [];
+    result.rows.forEach((country) => {
+      countries.push(country.country_code);
+    });
+    return countries;
+  }  
+////////////////////////////Worldmap End//////////////////////
+
+
+
+
+app.use((req, res, next) => {
+    res.locals.pageName = '';
+    next();
+});
+
+app.get('/', async (req, res) => {
+    res.render('index.ejs',{pageName:'home'});
+});
+
+app.get('/world', async (req, res) => {
+    try {
+        const countries = await checkVisisted();
+        const currenUser = await pool.query("SELECT * FROM users WHERE id=1;");
+        res.render('world.ejs',{
+            pageName:'world',
+            countries: countries,
+            color: currenUser.rows[0].color,
+        });
+    } catch (error) {
+        res.status(500).json({ 
+            success: false, message: 'Error fetching data', error: error.message
+        });    
+
+    }   
+});
+
+
+app.get('/items', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM blog;');
+        // res.json({ success: true, data: result.rows });
+        res.render('items.ejs',{data: result.rows});
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Error fetching data', error: error.message });
+    }
+});
+
+app.get('/test1', async (req, res) => {
+    const result = await pool.query('SELECT * FROM blog LIMIT 1');
+    res.render('test.ejs',{sample_data: result.rows, pageName:'home'});
+});
+
 
 
 // Start the server

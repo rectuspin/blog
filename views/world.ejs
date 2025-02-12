@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+
+
+    <!-- Main content -->
+    <main id="main" class="site-main">
+        <section class="worldmap-intro">
+            haha
+        </section>
+        <%- include('partials/worldmap') %>
+    </main>
+
+
+<%- include('partials/footer') %>
+
+<script async>
+    const country_codes = "<%= countries %>".split(",");
+    country_codes.forEach(code => {
+        $(`#${code}`).css('fill', '<%= color %>');
+    });
+</script>

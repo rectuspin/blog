@@ -1381,8 +1381,8 @@ html, body {
   }
 }
 
-/* Section: Team */
-.team {
+/* Section: activity */
+.activity {
   margin-top: 50px;
 }
 
@@ -1525,21 +1525,21 @@ html, body {
 }
 
 @media only screen and (max-width: 991px) {
-  /* Section: Team */
+  /* Section: activity */
   .section-activities .col-xs-6:nth-child(n+3) {
     margin-top: 30px;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  /* Section: Team */
-  .team {
+  /* Section: activity */
+  .activity {
     margin-top: 30px;
   }
 }
 
 @media only screen and (max-width: 479px) {
-  /* Section: Team */
+  /* Section: activity */
   .section-activities .col-xs-6 {
     width: 100%;
   }
@@ -2444,8 +2444,8 @@ textarea.form-control {
   opacity: 0.5;
 }
 .big-rectangle i {
-  font-size: 100px; /* Adjust this size to make it big enough */
-  color: white; /* Optional: change icon color */
+  font-size: 100px; 
+  color: white; 
 }
 
 .section-contact .row {
@@ -2457,7 +2457,8 @@ textarea.form-control {
 }
 
 h2{
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);  /* Title shadow to make it more visible */
+   /* Title shadow to make it more visible */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
 }
 
 a.clickable-icon i{
@@ -2491,4 +2492,59 @@ a.clickable-icon i{
 
 .blink {
   animation: blink 1s ease-in-out 0s infinite;
+}
+
+.more-activity{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.more-activity p{
+  margin-bottom: 30px;
+  font-size:16px;
+  color: #666;
+}
+
+/* world.ejs */
+.worldmap-intro{
+  /* padding: 100px; */
+}
+
+/* World Map design
+================================================== */
+.worldmap{
+  background: #404040;
+  display: flex;
+  align-items: center;
+
+  position: relative;
+  visibility: visible;
+/* 
+  width: 100%;
+  height: 100%; */
+  padding: 3rem 1rem;
+  opacity: 1;
+
+  transition: opacity 0.5s;
+
+  /* margin-top: -90px; */
+}
+
+.worldmap-svg{
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  margin-left: 1rem;
+  
+}
+
+.worldmap-svg path{
+  fill: #e0e0e0;
+  fill-opacity: 1;
+  stroke: #a0a0a0;
+  stroke-opacity: 1;
+  stroke-width: 0.5;
+  transition: 0.5s;
 }
