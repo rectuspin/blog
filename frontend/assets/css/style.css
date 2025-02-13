@@ -2507,9 +2507,29 @@ a.clickable-icon i{
   color: #666;
 }
 
+.section-worldmap {
+  padding: 100px 0;
+}
+
 /* world.ejs */
-.worldmap-intro{
-  /* padding: 100px; */
+.section-worldmap h2{
+  font-family: Varela, sans-serif;
+  font-size: 32px;
+  color: rgb(25, 111, 194);
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0px;
+}
+
+#country-name-box {
+  position: absolute;
+  background:grey;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  display: block;
+  z-index:2;
 }
 
 /* World Map design
@@ -2548,3 +2568,4 @@ a.clickable-icon i{
   stroke-width: 0.5;
   transition: 0.5s;
 }
+

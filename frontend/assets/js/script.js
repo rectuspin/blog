@@ -1,6 +1,7 @@
 
 ////////////////////Highlight//////////////////////////
 $(document).ready(function() {
+    //highlight clicked items
     $('.highlight').on('click', function() {
         var target = $(this).data("target");
         $('html, body').animate({
@@ -11,10 +12,7 @@ $(document).ready(function() {
             $(target).removeClass('blink');
         }, 4000); 
     });
-});
 
-
-$(document).ready(function() {
     const url = new URLSearchParams(window.location.search);
     
     //Creation Alert
@@ -41,6 +39,20 @@ $(document).ready(function() {
                 alert('Error deleting the item');
                 window.location.href = "/items";
             });
+    });
+
+    $(".path-country").on('mousemove', function (event) {
+        const text = $(this).attr("title"); 
+        $('#country-name-box').text(text) 
+                     .css({
+                        left: event.pageX + 10 + 'px',
+                        top: event.pageY + 10 + 'px',
+                        display: 'block'
+                     });
+    });
+
+    $('.path-country').on('mouseleave', function () {
+        $('#country-name-box').hide(); 
     });
 
 });
