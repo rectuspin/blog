@@ -3,7 +3,7 @@
 $(document).ready(function() {
     //highlight clicked items
     $('.highlight').on('click', function() {
-        var target = $(this).data("target");
+        let target = $(this).data("target");
         $('html, body').animate({
             scrollTop: $(target).offset().top -120
         }, 1000);  
@@ -41,6 +41,7 @@ $(document).ready(function() {
             });
     });
 
+    //Show country name
     $(".path-country").on('mousemove', function (event) {
         const text = $(this).attr("title"); 
         $('#country-name-box').text(text) 
@@ -55,6 +56,35 @@ $(document).ready(function() {
         $('#country-name-box').hide(); 
     });
 
+
+    //Search Country name
+    $('#search-button').on('click', function () {
+        let query = $('#country-search').val().trim();
+        if (query === '') {
+            $('#searchResult').text('Please enter a search term.');
+            return;
+        }
+
+        axios.get(`/search?query=${query}`)
+            .then(response => {
+                console.log("Result:"+response.data.length);
+                if (response.data.length>0) {
+                    let target = "#"+response.data[0].country_code
+                    $(target).addClass('blink');
+                    setTimeout(function() {
+                        $(target).removeClass('blink');
+                    }, 4000); 
+                    
+                    $('#searchResult').text(response.data[0].country_name);
+                } else {
+                    $('#searchResult').text(`No matching record found.`);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                $('#searchResult').text('An error occurred while searching for the country.');
+            });
+    });
 });
 
 

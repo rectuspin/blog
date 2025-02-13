@@ -68,9 +68,9 @@ app.delete('/items/:id', async (req, res) => {
 ////////////////////////////Worldmap Start/////////////////////
 let currentUserId = 1;
 
-let users = [
-    { id: 1, name: "Angela", color: "blue" },
-  ];
+// let users = [
+//     { id: 1, name: "Christopher", color: "#ffffcc" },
+//   ];
 
 
   async function checkVisisted() {
@@ -85,21 +85,8 @@ let users = [
     });
     return countries;
   }  
-////////////////////////////Worldmap End//////////////////////
 
-
-
-
-app.use((req, res, next) => {
-    res.locals.pageName = '';
-    next();
-});
-
-app.get('/', async (req, res) => {
-    res.render('index.ejs',{pageName:'home'});
-});
-
-app.get('/world', async (req, res) => {
+  app.get('/world', async (req, res) => {
     try {
         const countries = await checkVisisted();
         const currenUser = await pool.query("SELECT * FROM users WHERE id=1;");
@@ -115,6 +102,36 @@ app.get('/world', async (req, res) => {
 
     }   
 });
+
+app.get('/search', async (req, res) => {
+    try {
+        const query = req.query.query;
+        console.log(req.query.query);
+        const result = await pool.query(
+            "SELECT v.id,v.country_code,v.user_id,c.country_name FROM visited_countries AS v INNER JOIN countries AS c on v.country_code=c.country_code WHERE country_name ILIKE $1",[`${query}`]
+        );
+        console.log(result.rows);
+        res.json(result.rows);
+    } catch (error) {
+        console.error('Database error:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+////////////////////////////Worldmap End//////////////////////
+
+
+
+
+app.use((req, res, next) => {
+    res.locals.pageName = '';
+    next();
+});
+
+app.get('/', async (req, res) => {
+    res.render('index.ejs',{pageName:'home'});
+});
+
 
 
 app.get('/items', async (req, res) => {
