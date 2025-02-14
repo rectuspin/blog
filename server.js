@@ -21,79 +21,18 @@ const pool = new Pool({
     // ssl: { rejectUnauthorized: false }  // Required for Supabase SSL connections
 });
 
-// Test database connection
-app.get('/test-db1', async (req, res) => {
-    try {
-        const result = await pool.query('SELECT * FROM blog LIMIT 1;'); // Fetch one row
-        pool.release(); // Release the connection back to the pool
-
-        res.json({ success: true, message: 'Connected to database!', sample_data: result.rows });
-    } catch (error) {
-        res.status(500).json({ success: false, message: 'Database connection failed', error: error.message });
-    }
-});
-
-
-// Add a new record
-app.post('/new', async (req, res) => {
-    const { title, description } = req.body;
-    try {
-        const result = await pool.query(
-            'INSERT INTO blog (title, description) VALUES ($1, $2) RETURNING *;',
-            [title, description]
-        );
-        res.json({ success: true, message: "Item created successfully" });
-        res.redirect("/?postCreated=true");
-    } catch (error) {
-        console.error('Error:', error);
-        res.status(500).json({ success: false, message: 'Error creating data', error: error.message });
-        res.redirect("/?postCreated=false"); 
-    }
-});
-
-// Delete a record
-app.delete('/items/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-        await pool.query('DELETE FROM blog WHERE id = $1;', [id]);
-        res.json({ success: true, message: "Item deleted successfully" });
-
-    } catch (error) {
-        res.status(500).json({ success: false, message: 'Error deleting data', error: error.message });
-
-        console.error('Error deleting item:', error);
-    }
-});
-
 ////////////////////////////Worldmap Start/////////////////////
-let currentUserId = 1;
+//Get visited countries
+app.get('/api/worldmap-design', async(req,res)=>{
+    const result = await pool.query("SELECT country_code FROM visited_countries WHERE user_id=1;");  
+    res.json(result.rows);
+});
 
-// let users = [
-//     { id: 1, name: "Christopher", color: "#ffffcc" },
-//   ];
-
-
-  async function checkVisisted() {
-   
-    const result = await pool.query(
-      "SELECT country_code FROM visited_countries JOIN users ON users.id = user_id WHERE user_id = $1; ",
-      [currentUserId]
-    );
-    let countries = [];
-    result.rows.forEach((country) => {
-      countries.push(country.country_code);
-    });
-    return countries;
-  }  
-
-  app.get('/world', async (req, res) => {
+//world.ejs
+app.get('/world', async (req, res) => {
     try {
-        const countries = await checkVisisted();
-        const currenUser = await pool.query("SELECT * FROM users WHERE id=1;");
         res.render('world.ejs',{
-            pageName:'world',
-            countries: countries,
-            color: currenUser.rows[0].color,
+            pageName:'world'
         });
     } catch (error) {
         res.status(500).json({ 
@@ -103,22 +42,36 @@ let currentUserId = 1;
     }   
 });
 
-app.get('/search', async (req, res) => {
+//Search country
+app.get('/api/search', async (req, res) => {
     try {
         const countryName = req.query.name;
-
-        const result = await pool.query(
+        let isVisited=true;
+        let isValid=true;
+        let result = await pool.query(
             "SELECT v.id,v.country_code,v.user_id,c.country_name FROM visited_countries AS v INNER JOIN countries AS c on v.country_code=c.country_code WHERE country_name ILIKE $1",[`${countryName}`]
         );
-
-        res.json(result.rows);
+        if(result.rows<=0){
+            result = await pool.query(
+                "SELECT country_name,country_code FROM  countries  WHERE country_name ILIKE $1",[`${countryName}`]
+            );
+            if(result.rows.length==0){
+                isValid=false;
+            }
+            isVisited=false;
+        }
+        res.json({
+            country: result.rows[0], 
+            isVisited:isVisited,isValid:isValid
+        });
     } catch (error) {
         console.error('Database error:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 });
 
-app.get('/country-search-suggestions', async (req, res) => {
+//Show suggestion for country search
+app.get('/api/country-search-suggestions', async (req, res) => {
     try {
       const countryName = req.query.name; 
       if (!countryName) return res.json([]); 
@@ -133,12 +86,9 @@ app.get('/country-search-suggestions', async (req, res) => {
       console.error('Error fetching search suggestions:', err);
       res.status(500).json({ error: 'Server error' });
     }
-  });
+});
 
 ////////////////////////////Worldmap End//////////////////////
-
-
-
 
 app.use((req, res, next) => {
     res.locals.pageName = '';
@@ -146,27 +96,10 @@ app.use((req, res, next) => {
 });
 
 app.get('/', async (req, res) => {
-    res.render('index.ejs',{pageName:'home'});
+    res.render('index.ejs',{
+        pageName:'home'
+    });
 });
-
-
-
-app.get('/items', async (req, res) => {
-    try {
-        const result = await pool.query('SELECT * FROM blog;');
-        // res.json({ success: true, data: result.rows });
-        res.render('items.ejs',{data: result.rows});
-    } catch (error) {
-        res.status(500).json({ success: false, message: 'Error fetching data', error: error.message });
-    }
-});
-
-app.get('/test1', async (req, res) => {
-    const result = await pool.query('SELECT * FROM blog LIMIT 1');
-    res.render('test.ejs',{sample_data: result.rows, pageName:'home'});
-});
-
-
 
 // Start the server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -1,4 +1,4 @@
-$(function () {    
+$(document).ready(function() {    
 // Navigation 
     $('.site-navigation').affix({
       offset: {
@@ -198,6 +198,17 @@ $(function () {
     if($('#grid').length >0 ) { 
       shuffleme.init(); //filter portfolio
     };
-}());
+        //highlight clicked items - home
+        $('.highlight').on('click', function() {
+            let target = $(this).data("target");
+            $('html, body').animate({
+                scrollTop: $(target).offset().top -120
+            }, 1000);  
+            $(target).addClass('blink');
+            setTimeout(function() {
+                $(target).removeClass('blink');
+            }, 4000); 
+        });
+});
 
 

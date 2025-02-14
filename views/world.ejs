@@ -1,25 +1,22 @@
 <%- include('partials/header') %>
 
-    <!-- Main content -->
-    <main id="main" class="site-main">
-        <section class="section-worldmap">
-            <h2>Countries I've Visited</h2>
-            <p class="section-subtitle">Where Have You Traveled?</p>
-            <div id="country-name-box"></div>
-            <div class="country-search-container">
-                <input id="country-search-bar" type="text" placeholder="Search Country Name">
-                <button id="country-search-button" type="submit"><i class="fa fa-search"></i></button>
-                <ul id="search-suggestions"></div>
-            </div>
-        </section>
+<!-- Main content -->
+<main id="main" class="site-main">
+    <section class="section-worldmap">
+        <h2>Countries I've Visited</h2>
+        <p class="section-subtitle">Where Have You Traveled?</p>
+        <div id="country-name-box"></div>
+        <div class="country-search-container">
+            <input id="country-search-bar" type="text" placeholder="Search Country Name">
+            <button id="country-search-button" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+            <ul id="search-suggestions"></ul>
+        </div>
+    </section>
+    <div class="worldmap-container">
         <%- include('partials/worldmap') %>
-    </main>
+    </div>
+</main>
 
 <%- include('partials/footer') %>
-
-<script async>
-    const country_codes = "<%= countries %>".split(",");
-    country_codes.forEach(code => {
-        $(`#${code}`).css('fill', '<%= color %>');
-    });
-</script>

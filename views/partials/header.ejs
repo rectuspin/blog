@@ -43,12 +43,10 @@
 
     <title>Christopher Yu</title>
 
-<!-- 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
       
-    <!-- Moved to head section for the custom script in ejs -->
     <!-- jQuery core js -->
+    <!-- Moved to head section for the custom script in ejs -->
     <script src="assets/js/jquery.min.js"></script>
 </head>
 
@@ -105,6 +103,9 @@
                             <li class="page-scroll"><a href="#resume">Resume</a></li>
                             <li class="page-scroll"><a href="#activity">Activities</a></li>
                             <li class="page-scroll"><a href="#contact">Contact</a></li>
+                        <% } %>
+                        <% if (pageName === 'country-review') { %>
+                            <li class="page-scroll"><a href="/world">World Map</a></li>
                         <% } %>
                     </ul><!-- /.navbar-nav -->
                 </div><!-- /.navbar-collapse -->

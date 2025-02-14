@@ -1,11 +1,6 @@
-
-
-
     <!-- Footer --> 
     <footer id="colophon" class="site-footer">
-
         <div class="container-fluid">
-
             <ul class="list-unstyled list-inline">
                 <li class="page-scroll"><a href="/">Home</a></li>
                 <% if (pageName === 'home') { %>
@@ -19,22 +14,17 @@
                     <li class="page-scroll"><a href="#contact">Contact</a></li>
                 <% } %>
             </ul>
-
             <div class="page-scroll">
                 <a href="#top" class="rectangle">
                     <i class="fa fa-angle-double-up"></i>
                 </a>
             </div>
-
         </div>
-
         <div class="container text-center">
             Christopher Yu
         </div>
-
     </footer><!-- /#footer -->
     <!-- End Footer --> 
-
 
     <!-- Bootstrap core js -->
     <script src="assets/js/bootstrap.min.js"></script>
@@ -59,11 +49,15 @@
 
     <!-- Custom JS -->
     <script src="assets/js/script.js"></script>
-    
+
     <!-- Custom JS - home -->
     <% if (pageName === 'home') { %>
         <script src="assets/js/home.js"></script>
     <% } %>
-
+    
+    <!-- Custom JS - world -->
+    <% if (pageName === 'world') { %>
+        <script src="assets/js/world.js"></script>
+    <% } %>
 </body>
 </html>
