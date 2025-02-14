@@ -105,18 +105,35 @@ let currentUserId = 1;
 
 app.get('/search', async (req, res) => {
     try {
-        const query = req.query.query;
-        console.log(req.query.query);
+        const countryName = req.query.name;
+
         const result = await pool.query(
-            "SELECT v.id,v.country_code,v.user_id,c.country_name FROM visited_countries AS v INNER JOIN countries AS c on v.country_code=c.country_code WHERE country_name ILIKE $1",[`${query}`]
+            "SELECT v.id,v.country_code,v.user_id,c.country_name FROM visited_countries AS v INNER JOIN countries AS c on v.country_code=c.country_code WHERE country_name ILIKE $1",[`${countryName}`]
         );
-        console.log(result.rows);
+
         res.json(result.rows);
     } catch (error) {
         console.error('Database error:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 });
+
+app.get('/country-search-suggestions', async (req, res) => {
+    try {
+      const countryName = req.query.name; 
+      if (!countryName) return res.json([]); 
+  
+      const result = await pool.query(
+        'SELECT country_name FROM countries WHERE country_name ILIKE $1 LIMIT 5', 
+        [`%${countryName}%`]
+      );
+
+      res.json(result.rows.map(row => row.country_name)); 
+    } catch (err) {
+      console.error('Error fetching search suggestions:', err);
+      res.status(500).json({ error: 'Server error' });
+    }
+  });
 
 ////////////////////////////Worldmap End//////////////////////
 

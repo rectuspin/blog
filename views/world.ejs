@@ -6,9 +6,11 @@
             <h2>Countries I've Visited</h2>
             <p class="section-subtitle">Where Have You Traveled?</p>
             <div id="country-name-box"></div>
-            <input id="country-search" type="text" placeholder="Search Country Name">
-            <button id="search-button" type="submit"><i class="fa fa-search"></i></button>
-            <div id="searchResult"></div>
+            <div class="country-search-container">
+                <input id="country-search-bar" type="text" placeholder="Search Country Name">
+                <button id="country-search-button" type="submit"><i class="fa fa-search"></i></button>
+                <ul id="search-suggestions"></div>
+            </div>
         </section>
         <%- include('partials/worldmap') %>
     </main>
