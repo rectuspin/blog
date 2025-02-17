@@ -24,6 +24,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-size: 15px;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -619,7 +620,7 @@ html, body {
  * Sections
  */
 .site-section {
-  padding: 100px 0;
+  padding: 80px 0;
 }
 
 .site-section h2 {
@@ -729,7 +730,7 @@ html, body {
 .main-service {
   position: relative;
   padding: 35px 0;
-  min-height: 180px;
+  min-height: 240px;
 }
 
 .main-service .rectangle {
@@ -765,7 +766,7 @@ html, body {
 
 .main-service p {
   margin: 25px 0 0;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 @media only screen and (max-width: 1199px) {
@@ -829,8 +830,8 @@ html, body {
 }
 
 .feature-about h3 {
-  margin: 50px 0 0;
-  font-size: 16px;
+  margin: 30px 0 0;
+  font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -866,7 +867,7 @@ html, body {
 
 /* Section: Skills */
 .section-skills {
-  background-color: #f6f6f6;
+  background-color: rgba(0,0,0,0.05)
 }
 
 .section-skills h2 {
@@ -1018,11 +1019,11 @@ html, body {
 /* Section: Services */
 .section-services.site-section {
   padding: 0;
-  background-color: #f6f6f6;
+  background-color: rgba(0,0,0,0.05);
 }
 
 .section-services .container-fluid {
-  padding: 100px 15px 70px;
+  padding: 100px 15px 50px;
   background-color: #ffffff;
 }
 
@@ -1131,7 +1132,7 @@ html, body {
   right: 0;
   margin-bottom: 0;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .section-services .col-sm-7 {
@@ -1146,11 +1147,13 @@ html, body {
 
 .service-info h3 {
   font-size: 28px;
-  margin: 0 0 0;
+  margin: 0 0 10px;
+  padding-bottom: 5px;
 }
 
 .service-info p {
-  margin: 30px 0 0;
+  margin: 15px 0 0;
+  font-size: 15px;
 }
 
 .nav-tabs .col-sm-fifth,
@@ -1551,7 +1554,7 @@ html, body {
 /* Section: History */
 .section-history {
   padding: 70px 0;
-  background-color: #f6f6f6;
+  background-color: rgba(0,0,0,0.05)
 }
 
 .section-history .section-diff-title h2 {
@@ -1631,7 +1634,7 @@ html, body {
   position: absolute;
   top: 15px;
   right: 0px;
-  background-color: #f6f6f6;
+  background-color: rgba(0,0,0,0.05);
   width: 20px;
   height: 20px;
   transform: rotate(45deg);
@@ -1789,7 +1792,7 @@ html, body {
     left: auto;
   }
   .timeline > li > .timeline-panel {
-    background-color: #f6f6f6;
+    background-color: rgba(0,0,0,0.05);
     width: 100%;
     padding-right: 0;
   }
@@ -2063,7 +2066,7 @@ html, body {
 
 /* Sections background: intro */
 .section-intro {
-  background: url(../img/intro.png) center no-repeat fixed;
+  background: url(../img/intro2.png) center no-repeat fixed;
 }
 
 .section-intro p {
@@ -2357,7 +2360,7 @@ textarea.form-control {
 }
 
 .section-activities{
-  background-color: #f6f6f6;
+  background-color: rgba(0,0,0,0.05);
 }
 
 h2{
@@ -2556,4 +2559,8 @@ a.clickable-icon i{
   stroke-opacity: 1;
   stroke-width: 0.5;
   transition: 0.5s;
+}
+
+#hsk-logo{
+  border-radius: 25px;
 }
