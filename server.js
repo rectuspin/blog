@@ -96,8 +96,9 @@ app.use((req, res, next) => {
 });
 
 app.get('/', async (req, res) => {
+    const result = await pool.query("SELECT url FROM infos WHERE name='resume';");
     res.render('index.ejs',{
-        pageName:'home'
+        pageName:'home', resume: result.rows[0].url
     });
 });
 
