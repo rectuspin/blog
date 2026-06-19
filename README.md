@@ -33,7 +33,7 @@ You can visit my portfolio at:
 ### 🏠 Index Page  
 The landing page presents **personal and professional details**.  
 
-### 🗺️ World Map Page  
+### 🗺️ World Map Page   [**Link**](https://rhinowillow.com/world)  
 This page features an **interactive world map** where visited countries flash to indicate they have been visited.
 
 #### 🔍 Search Functionality  
